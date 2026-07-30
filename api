@@ -1999,10 +1999,7 @@
       initSignature(canvas);
       tr.querySelector('.sig-clear').addEventListener('click', () => canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height));
     }
-    document.getElementById('convocation-chk').addEventListener('change', function () {
-      document.getElementById('emargement-wrap').classList.toggle('hidden', !this.checked);
-      if (this.checked && !document.getElementById('emargement-body').children.length) addEmargementRow();
-    });
+
 
     /* ---------------- Modals ---------------- */
     function openModal(id) { document.getElementById(id).classList.add('open'); }
@@ -2626,7 +2623,7 @@
             const cv = b.lastElementChild.querySelector('canvas');
             if (cv && d.sigs && d.sigs[idx]) { const im = new Image(); im.onload = () => cv.getContext('2d').drawImage(im, 0, 0); im.src = d.sigs[idx]; }
           });
-          if (document.getElementById('convocation-chk').checked) document.getElementById('emargement-wrap').classList.remove('hidden');
+          if (document.getElementById('convocation-chk')?.checked) document.getElementById('emargement-wrap')?.classList.remove('hidden');
         }
         if (d.lesions && window.setLesionState) window.setLesionState(d.lesions);
         if (d.causes) restoreCauses(d.causes);
